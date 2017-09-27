@@ -1,0 +1,9 @@
+
+Modpagespeed Off
+
+<IfModule mod_expires.c>
+
+  <FilesMatch (\.js|\.html\.css\.php)$>
+     ExpiresActive Off
+  </FilesMatch>
+ </IfModule>
