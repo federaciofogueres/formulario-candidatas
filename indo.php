@@ -76,7 +76,7 @@
                         <div class="col-md-4">
                             <div class="form-group label-static is-empty">
                                 <label class="control-label">Fecha de nacimiento</label>
-                                <input class="datepicker form-control" type="text" id="fechanac" name="fechanac"/>
+                                <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy" id="fechanac" name="fechanac"/>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -138,9 +138,13 @@
                                 <select type="text" class="form-control" id="tipoCargo1" required>
                                         <option value=""></option>
                                         <option value="Dama">Dama</option>
-                                        <option value="Belleza">Belleza</option>
+                                        <option value="Belleza">Bellesa</option>
                                         <option value="Dama infantil">Dama infantil</option>
                                         <option value="Belleza infantil">Belleza infantil</option>
+                                        <option value="Dama del foc infantil">Dama del foc infantil</option>
+                                        <option value="Presidenta infantil">Presidenta infantil</option>
+                                        <option value="Presidenta adulta">Presidenta adulta</option>
+                                        <option value="Presidenta adulta">Bellesa del foc infantil</option>
                                 </select>
                             </div>
                         </div>
@@ -152,7 +156,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group label-floating">
-                                <label class="control-label">Foguera</label>
+                                <label class="control-label">Foguera / Barraca</label>
                                 <input type="text" class="form-control" id="hogueraCargo1">
                             </div>
                         </div>
@@ -169,7 +173,6 @@
                     <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
 
                 </form>
-
             </div>
         </div>
     </div>
@@ -234,7 +237,7 @@
 <script>
     $(document).ready(function () {
         $('#remove').hide();
-        $('#fechanac').on('blur', function (e) {
+        $('#fechanac').on('changeDate', function (e) {
             debugger;
             var date = $('#fechanac').val();
             date = moment(date, "YYYY-MM-DD");
@@ -245,7 +248,6 @@
         $(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
 
         $('#add').on('click', function (e) {
-            debugger;
             var numRows = $('.clonedDatosCargo').length;
             var newNumRows = new Number(numRows + 1);
             var newRow = $('#datosCargo' + numRows).clone(true).attr('id', 'datosCargo' + newNumRows);
@@ -264,7 +266,6 @@
         });
 
         $('#remove').on('click', function (e) {
-            debugger;
             var numRows = $('.clonedDatosCargo').length;
             var newNumRows = new Number(numRows - 1);
 
@@ -281,10 +282,10 @@
             $('#datosCargo' + numRows).remove();
         });
 
-
-        //$('#fechanac').datepicker({
-        // 	weekStart:2
-        //});
+        $('#fechanac').datepicker({
+        	weekStart: 1,
+            language: 'es'
+        });
     });
 </script>
 </html>
