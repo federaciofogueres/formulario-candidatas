@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title>Formulario Candidatas 2017 | Federació de Les Fogueres de Sant Joan</title>
@@ -19,8 +19,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="assets/css/material-kit.css" rel="stylesheet"/>
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="assets/css/demo.css" rel="stylesheet"/>
+    <link href="assets/css/main.css" rel="stylesheet"/>
 </head>
 
 <body class="tutorial-page">
@@ -35,10 +34,10 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a href="http://www.creative-tim.com">
+            <a href="http://www.hogueras.es" target="_blank">
                 <div class="logo-container">
                     <div class="brand">
-                        Candidatas 2018
+                        <img src="assets/img/logofederacion.png" alt="Logo Federación">
                     </div>
                 </div>
             </a>
@@ -136,7 +135,6 @@
                             <div class="form-group label-floating">
                                 <label class="control-label">Cargo</label>
                                 <select type="text" class="form-control" id="tipoCargo1" required>
-                                        <option value=""></option>
                                         <option value="Dama">Dama</option>
                                         <option value="Belleza">Bellesa</option>
                                         <option value="Dama infantil">Dama infantil</option>
@@ -193,6 +191,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="http://intranet.hogueras.es" rel="nofollow">
+                        Intranet.hogueras.es
+                    </a>
+                </li>
+                <li>
                     <a href="mailto:asesoriaimagen@hogueras.es">
                         ¿Tienes dudas?
                     </a>
@@ -200,13 +203,13 @@
             </ul>
         </nav>
         <div class="social-area pull-right">
-            <a class="btn btn-social btn-twitter btn-just-icon" href="https://twitter.com/CreativeTim">
+            <a class="btn btn-social btn-twitter btn-just-icon" href="https://twitter.com/fed_fogueres">
                 <i class="fa fa-twitter"></i>
             </a>
-            <a class="btn btn-social btn-facebook btn-just-icon" href="https://www.facebook.com/CreativeTim">
+            <a class="btn btn-social btn-facebook btn-just-icon" href="https://www.facebook.com/fogueres">
                 <i class="fa fa-facebook-square"></i>
             </a>
-            <a class="btn btn-social btn-google btn-just-icon" href="https://plus.google.com/+CreativetimPage">
+            <a class="btn btn-social btn-google btn-just-icon" href="https://plus.google.com/b/116364503080646782264/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </div>
@@ -231,61 +234,8 @@
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="assets/js/material-kit.js" type="text/javascript"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"
-        type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js" type="text/javascript"></script>
 
-<script>
-    $(document).ready(function () {
-        $('#remove').hide();
-        $('#fechanac').on('changeDate', function (e) {
-            debugger;
-            var date = $('#fechanac').val();
-            date = moment(date, "YYYY-MM-DD");
-            var age = moment().diff(date, 'years');
-            $('#edad').val(age);
-            $('#edad').trigger("change");
-        });
-        $(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
+<script src="assets/js/main.js" type="text/javascript"></script>
 
-        $('#add').on('click', function (e) {
-            var numRows = $('.clonedDatosCargo').length;
-            var newNumRows = new Number(numRows + 1);
-            var newRow = $('#datosCargo' + numRows).clone(true).attr('id', 'datosCargo' + newNumRows);
-
-            newRow.find("[id^='hogueraCargo']").attr('id', 'hogueraCargo' + newNumRows).val('');
-            newRow.find("[id^='anyoCargo']").attr('id', 'anyoCargo' + newNumRows).val('');
-            newRow.find("[id^='tipoCargo']").attr('id', 'tipoCargo' + newNumRows).val('');
-            newRow.find('#remove').show();
-
-
-            $('#datosCargo' + numRows).find('#add').remove();
-            $('#datosCargo' + numRows).find('#remove').remove();
-
-
-            $('#datosCargo' + numRows).after(newRow);
-        });
-
-        $('#remove').on('click', function (e) {
-            var numRows = $('.clonedDatosCargo').length;
-            var newNumRows = new Number(numRows - 1);
-
-            var btnAdd = $('#add');
-            var btnRemove = $('#remove');
-
-            if (newNumRows == 1) {
-                btnRemove.hide();
-            }
-
-            $('#datosCargo' + newNumRows).find('.rowOptions').append(btnAdd);
-            $('#datosCargo' + newNumRows).find('.rowOptions').append(btnRemove);
-
-            $('#datosCargo' + numRows).remove();
-        });
-
-        $('#fechanac').datepicker({
-        	weekStart: 1,
-            language: 'es'
-        });
-    });
-</script>
 </html>
