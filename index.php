@@ -1,5 +1,32 @@
+<?php
+include_once("includes/db.conf.php");
+include_once("getCandidata.php");
+$isCandidata = false;
+$isCompleted = false;
+if(!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8){
+  $uid = $_GET["uid"];
+  $candidata = getCandidata($uid);
+  if(!empty($candidata)){
+    $isCandidata = true;
+    if($candidata['completed']){
+      $isCompleted = true;
+    }
+    // $hoguera = $candidata['hoguera'];
+    $uiddb = $candidata['uid'];
+  }
+}
+if(!$isCandidata){
+ header('Location: http://www.hogueras.es');
+}
+
+/*Si es candidata tendrás que pintar la página*/
+
+/*Si isCompleted es true hay que mostrar otra parte de la página que diga que ya están los datos completados, el formulario no saldrá*/
+
+?>
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8"/>
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
@@ -116,6 +143,15 @@
                                 <label class="control-label">Email</label>
                                 <input type="email" class="form-control" required>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12" style="margin-top:20px;">
+                            <p>Estudios</p>
+                            <textarea class="form-control" maxlength="300"
+                                      placeholder="Indicar Estudios y centro donde los cursó" rows="5"
+                                      style="margin-top:-20px;" required></textarea>
                         </div>
                     </div>
 
