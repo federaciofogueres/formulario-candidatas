@@ -1,7 +1,7 @@
 <?php
 include_once("includes/db.conf.php");
 include_once("getCandidata.php");
-$isCandidata = false;
+$isCandidata = true; /* RESTABLECER EL VALOR A FALSE*/
 $isCompleted = false;
 if(!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8){
   $uid = $_GET["uid"];
