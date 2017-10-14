@@ -1,7 +1,7 @@
 <?php
 include_once("includes/db.conf.php");
 include_once("getCandidata.php");
-$isCandidata = true; /* RESTABLECER EL VALOR A FALSE*/
+$isCandidata = false;
 $isCompleted = false;
 if(!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8){
   $uid = $_GET["uid"];
@@ -11,10 +11,11 @@ if(!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8){
     if($candidata['completed']){
       $isCompleted = true;
     }
-    // $hoguera = $candidata['hoguera'];
+    $hoguera = $candidata['hoguera'];
     $uiddb = $candidata['uid'];
   }
 }
+
 if(!$isCandidata){
  header('Location: http://www.hogueras.es');
 }
