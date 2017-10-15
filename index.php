@@ -3,21 +3,21 @@ include_once("includes/db.conf.php");
 include_once("getCandidata.php");
 $isCandidata = false;
 $isCompleted = false;
-if(!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8){
-  $uid = $_GET["uid"];
-  $candidata = getCandidata($uid);
-  if(!empty($candidata)){
-    $isCandidata = true;
-    if($candidata['completed']){
-      $isCompleted = true;
+if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
+    $uid = $_GET["uid"];
+    $candidata = getCandidata($uid);
+    if (!empty($candidata)) {
+        $isCandidata = true;
+        if ($candidata['completed']) {
+            $isCompleted = true;
+        }
+        $hoguera = $candidata['hoguera'];
+        $uiddb = $candidata['uid'];
     }
-    $hoguera = $candidata['hoguera'];
-    $uiddb = $candidata['uid'];
-  }
 }
 
-if(!$isCandidata){
- header('Location: http://www.hogueras.es');
+if (!$isCandidata) {
+    header('Location: http://www.hogueras.es');
 }
 
 /*Si es candidata tendrás que pintar la página*/
@@ -30,8 +30,8 @@ if(!$isCandidata){
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title>Formulario Candidatas 2017 | Federació de Les Fogueres de Sant Joan</title>
@@ -89,7 +89,7 @@ if(!$isCandidata){
     <div class="main main-raised" id="formulario">
         <div class="section">
             <div class="container">
-                <form class="" action="" method="post">
+                <form class="" id="form" action="saveCandidata.php" method="post">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group label-floating">
@@ -103,13 +103,14 @@ if(!$isCandidata){
                         <div class="col-md-4">
                             <div class="form-group label-static is-empty">
                                 <label class="control-label">Fecha de nacimiento</label>
-                                <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy" id="fechanac" name="fechanac"/>
+                                <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy"
+                                       id="fechanac" name="fechanac"/>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group label-floating">
                                 <label class="control-label">Ciudad</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" id="ciudad" name="ciudad" required>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -121,7 +122,8 @@ if(!$isCandidata){
                         <div class="col-md-2">
                             <div class="form-group label-floating">
                                 <label class="control-label">Años en la fiesta</label>
-                                <input id="anyosfiesta" name="anyosfiesta" type="number" min="0" max="100" class="form-control" required>
+                                <input id="anyosfiesta" name="anyosfiesta" type="number" min="0" max="100"
+                                       class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -130,19 +132,20 @@ if(!$isCandidata){
                         <div class="col-md-4">
                             <div class="form-group label-floating">
                                 <label class="control-label">DNI</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" id="dni" name="dni" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group label-floating">
                                 <label class="control-label">Teléfono</label>
-                                <input type="tel" pattern="^\d{4}-\d{3}-\d{4}$" class="form-control" required>
+                                <input type="tel" id="telefono" name="telefono" pattern="^[0-9]{9}$"
+                                       class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group label-floating">
                                 <label class="control-label">Email</label>
-                                <input type="email" class="form-control" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                         </div>
                     </div>
@@ -150,7 +153,7 @@ if(!$isCandidata){
                     <div class="row">
                         <div class="col-md-12" style="margin-top:20px;">
                             <p>Estudios</p>
-                            <textarea class="form-control" maxlength="300"
+                            <textarea class="form-control" id="estudios" name="estudios" maxlength="300"
                                       placeholder="Indicar Estudios y centro donde los cursó" rows="5"
                                       style="margin-top:-20px;" required></textarea>
                         </div>
@@ -159,9 +162,9 @@ if(!$isCandidata){
                     <div class="row">
                         <div class="col-md-12" style="margin-top:20px;">
                             <p>Situación laboral</p>
-                            <textarea class="form-control" maxlength="300"
-                                      placeholder="Indicar si trabaja actualmente, empresa y profesión" rows="5"
-                                      style="margin-top:-20px;" required></textarea>
+                            <textarea class="form-control" id="situacion_laboral" name="situacion_laboral"
+                                      maxlength="300" placeholder="Indicar si trabaja actualmente, empresa y profesión"
+                                      rows="5" style="margin-top:-20px;" required></textarea>
                         </div>
                     </div>
 
@@ -172,14 +175,14 @@ if(!$isCandidata){
                             <div class="form-group label-floating">
                                 <label class="control-label">Cargo</label>
                                 <select type="text" class="form-control" id="tipoCargo1" required>
-                                        <option value="Dama">Dama</option>
-                                        <option value="Belleza">Bellesa</option>
-                                        <option value="Dama infantil">Dama infantil</option>
-                                        <option value="Belleza infantil">Belleza infantil</option>
-                                        <option value="Dama del foc infantil">Dama del foc infantil</option>
-                                        <option value="Presidenta infantil">Presidenta infantil</option>
-                                        <option value="Presidenta adulta">Presidenta adulta</option>
-                                        <option value="Presidenta adulta">Bellesa del foc infantil</option>
+                                    <option value="Dama">Dama</option>
+                                    <option value="Belleza">Bellesa</option>
+                                    <option value="Dama infantil">Dama infantil</option>
+                                    <option value="Belleza infantil">Belleza infantil</option>
+                                    <option value="Dama del foc infantil">Dama del foc infantil</option>
+                                    <option value="Presidenta infantil">Presidenta infantil</option>
+                                    <option value="Presidenta adulta">Presidenta adulta</option>
+                                    <option value="Presidenta adulta">Bellesa del foc infantil</option>
                                 </select>
                             </div>
                         </div>
@@ -206,6 +209,8 @@ if(!$isCandidata){
                     </div>
 
                     <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
+
+                    <input type="hidden" name="uid" value="<?php echo($uid) ?>">
 
                 </form>
             </div>
@@ -271,7 +276,8 @@ if(!$isCandidata){
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="assets/js/material-kit.js" type="text/javascript"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"
+        type="text/javascript"></script>
 
 <script src="assets/js/main.js" type="text/javascript"></script>
 
