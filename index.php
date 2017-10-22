@@ -8,6 +8,7 @@ if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
     $candidata = getCandidata($uid);
     if (!empty($candidata)) {
         $isCandidata = true;
+
         if ($candidata['completed']) {
             $isCompleted = true;
         }
@@ -19,11 +20,6 @@ if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
 if (!$isCandidata) {
     header('Location: http://www.hogueras.es');
 }
-
-/*Si es candidata tendrás que pintar la página*/
-
-/*Si isCompleted es true hay que mostrar otra parte de la página que diga que ya están los datos completados, el formulario no saldrá*/
-
 ?>
 
 <!doctype html>
@@ -52,7 +48,7 @@ if (!$isCandidata) {
 
 <body class="tutorial-page">
 
-<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
+<nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -64,8 +60,10 @@ if (!$isCandidata) {
             </button>
             <a href="http://www.hogueras.es" target="_blank">
                 <div class="logo-container">
-                    <div class="brand">
+                    <div class="logo">
                         <img src="assets/img/logofederacion.png" alt="Logo Federación">
+                    </div>
+                    <div class="brand">
                     </div>
                 </div>
             </a>
@@ -85,137 +83,153 @@ if (!$isCandidata) {
             </div>
         </div>
     </div>
+    <?php
+    if (!$isCompleted) { ?>
+        <div class="main main-raised" id="formulario">
+            <div class="section">
+                <div class="container">
+                    <form class="" id="form" action="saveCandidata.php" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Nombre de la candidata</label>
+                                    <input type="text" class="form-control" maxlength="255" required>
+                                </div>
+                            </div>
+                        </div>
 
-    <div class="main main-raised" id="formulario">
-        <div class="section">
-            <div class="container">
-                <form class="" id="form" action="saveCandidata.php" method="post">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Nombre de la candidata</label>
-                                <input type="text" class="form-control" required>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group label-static">
+                                    <label class="control-label">Fecha de nacimiento</label>
+                                    <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy"
+                                           id="fechanac" name="fechanac" pattern="\d{1,2}/\d{1,2}/\d{4}" required/>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Ciudad</label>
+                                    <input type="text" class="form-control" id="ciudad" name="ciudad" maxlength="100" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Edad (auto)</label>
+                                    <input id="edad" name="edad" type="text" class="form-control" readonly required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Años en la fiesta</label>
+                                    <input id="anyosfiesta" name="anyosfiesta" type="number" min="0" max="100"
+                                           class="form-control" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group label-static is-empty">
-                                <label class="control-label">Fecha de nacimiento</label>
-                                <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy"
-                                       id="fechanac" name="fechanac"/>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">DNI</label>
+                                    <input type="text" class="form-control" id="dni" name="dni" pattern="^\d{8}[a-zA-Z]$" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Teléfono</label>
+                                    <input type="tel" id="telefono" name="telefono" pattern="^[0-9]{9}$"
+                                           class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Ciudad</label>
-                                <input type="text" class="form-control" id="ciudad" name="ciudad" required>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Edad (auto)</label>
-                                <input id="edad" name="edad" type="text" class="form-control" readonly required>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Años en la fiesta</label>
-                                <input id="anyosfiesta" name="anyosfiesta" type="number" min="0" max="100"
-                                       class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <label class="control-label">DNI</label>
-                                <input type="text" class="form-control" id="dni" name="dni" required>
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top:20px;">
+                                <p>Estudios</p>
+                                <textarea class="form-control" id="estudios" name="estudios" maxlength="300"
+                                          placeholder="Indicar Estudios y centro donde los cursó (máximo 300 caracteres)" rows="5"
+                                          style="margin-top:-20px;" required></textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" pattern="^[0-9]{9}$"
-                                       class="form-control" required>
+
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top:20px;">
+                                <p>Situación laboral</p>
+                                <textarea class="form-control" id="situacion_laboral" name="situacion_laboral"
+                                          maxlength="300"
+                                          placeholder="Indicar si trabaja actualmente, empresa y profesión (máximo 300 caracteres)"
+                                          rows="5" style="margin-top:-20px;" required></textarea>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+
+                        <p>Currículum festero (Indicar los años dada de alta y el cargo desempeñado)</p>
+
+                        <div class="row clonedDatosCargo" id="datosCargo1">
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Cargo</label>
+                                    <select type="text" class="form-control" id="tipoCargo1" required>
+                                        <option value="Bellesa infantil">Bellesa infantil</option>
+                                        <option value="Presidenta adulta">Bellesa del foc infantil</option>
+                                        <option value="Bellesa">Bellesa adulta</option>
+                                        <option value="Dama infantil">Dama infantil</option>
+                                        <option value="Dama del foc infantil">Dama del foc infantil</option>
+                                        <option value="Dama">Dama adulta</option>
+                                        <option value="Presidenta infantil">Presidenta infantil</option>
+                                        <option value="Presidenta adulta">Presidenta adulta</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Año</label>
+                                    <input type="number" min="1900" class="form-control" id="anyoCargo1">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Foguera / Barraca</label>
+                                    <input type="text" class="form-control" id="hogueraCargo1">
+                                </div>
+                            </div>
+                            <div class="col-md-2 rowOptions">
+                                <a class="btn btn-primary btn-fab btn-fab-mini btn-round" id="add">
+                                    <i class="material-icons">add</i>
+                                </a>
+                                <a class="btn btn-primary btn-fab btn-fab-mini btn-round" id="remove">
+                                    <i class="material-icons">remove</i>
+                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-12" style="margin-top:20px;">
-                            <p>Estudios</p>
-                            <textarea class="form-control" id="estudios" name="estudios" maxlength="300"
-                                      placeholder="Indicar Estudios y centro donde los cursó" rows="5"
-                                      style="margin-top:-20px;" required></textarea>
-                        </div>
-                    </div>
+                        <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
 
-                    <div class="row">
-                        <div class="col-md-12" style="margin-top:20px;">
-                            <p>Situación laboral</p>
-                            <textarea class="form-control" id="situacion_laboral" name="situacion_laboral"
-                                      maxlength="300" placeholder="Indicar si trabaja actualmente, empresa y profesión"
-                                      rows="5" style="margin-top:-20px;" required></textarea>
-                        </div>
-                    </div>
+                        <input type="hidden" name="uid" value="<?php echo($uid) ?>">
 
-                    <p>Currículum festero (Indicar los años dada de alta y el cargo desempeñado)</p>
-
-                    <div class="row clonedDatosCargo" id="datosCargo1">
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Cargo</label>
-                                <select type="text" class="form-control" id="tipoCargo1" required>
-                                    <option value="Dama">Dama</option>
-                                    <option value="Belleza">Bellesa</option>
-                                    <option value="Dama infantil">Dama infantil</option>
-                                    <option value="Belleza infantil">Belleza infantil</option>
-                                    <option value="Dama del foc infantil">Dama del foc infantil</option>
-                                    <option value="Presidenta infantil">Presidenta infantil</option>
-                                    <option value="Presidenta adulta">Presidenta adulta</option>
-                                    <option value="Presidenta adulta">Bellesa del foc infantil</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Año</label>
-                                <input type="number" min="1900" class="form-control" id="anyoCargo1">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Foguera / Barraca</label>
-                                <input type="text" class="form-control" id="hogueraCargo1">
-                            </div>
-                        </div>
-                        <div class="col-md-2 rowOptions">
-                            <a class="btn btn-primary btn-fab btn-fab-mini btn-round" id="add">
-                                <i class="material-icons">add</i>
-                            </a>
-                            <a class="btn btn-primary btn-fab btn-fab-mini btn-round" id="remove">
-                                <i class="material-icons">remove</i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
-
-                    <input type="hidden" name="uid" value="<?php echo($uid) ?>">
-
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    <?php } else { ?>
+        <div class="main">
+            <div class="section">
+                <div class="container">
+                    <h2 style="text-align:center;">
+                        Formulario completado
+                        <br>
+                        <small>Cualquier duda envía un correo a la dirección asesoriaimagen@hogueras.es</small>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 
 </div>
 <footer class="footer footer-transparent">

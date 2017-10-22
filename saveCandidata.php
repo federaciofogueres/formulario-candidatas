@@ -15,7 +15,7 @@ if(isset($_POST['uid'])){
     if($candidata->id != 0){
 
     	if(isset($_POST['nombre'])){
-    		$candidata->nombre = htmlentities(trim($_POST['nombre']),ENT_NOQUOTES);
+    		$candidata->nombre = htmlentities(substr(trim($_POST['nombre']), 0, 255),ENT_NOQUOTES);
     	}
 
         if(isset($_POST['fechanac'])){
@@ -24,7 +24,7 @@ if(isset($_POST['uid'])){
         }
 
         if(isset($_POST['ciudad'])){
-            $candidata->ciudad = htmlentities(trim($_POST['ciudad']),ENT_NOQUOTES);
+            $candidata->ciudad = htmlentities(substr(trim($_POST['ciudad']),0, 100),ENT_NOQUOTES);
         }
 
         if(isset($_POST['edad'])){
@@ -36,7 +36,7 @@ if(isset($_POST['uid'])){
         }
 
         if(isset($_POST['dni'])){
-            $candidata->dni = htmlentities(trim($_POST['dni']),ENT_NOQUOTES);
+            $candidata->dni = htmlentities(substr(trim($_POST['dni']), 0, 9),ENT_NOQUOTES);
         }
 
         if(isset($_POST['telefono'])){
@@ -44,19 +44,19 @@ if(isset($_POST['uid'])){
         }
 
         if(isset($_POST['email'])){
-            $candidata->email = htmlentities(trim($_POST['email']),ENT_NOQUOTES);
+            $candidata->email = htmlentities(substr(trim($_POST['email']), 0, 100),ENT_NOQUOTES);
         }
 
         if(isset($_POST['estudios'])){
-            $candidata->formacion = htmlentities(trim($_POST['estudios']),ENT_NOQUOTES);
+            $candidata->formacion = htmlentities(substr(trim($_POST['estudios']), 0, 300),ENT_NOQUOTES);
         }
 
         if(isset($_POST['situacion_laboral'])){
-            $candidata->situacion_laboral = htmlentities(trim($_POST['situacion_laboral']),ENT_NOQUOTES);
+            $candidata->situacion_laboral = htmlentities(substr(trim($_POST['situacion_laboral']), 0, 300),ENT_NOQUOTES);
         }
 
         if(isset($_POST['cargos'])){
-            $candidata->curriculum = htmlentities(trim($_POST['cargos']),ENT_NOQUOTES);
+            $candidata->curriculum = htmlentities(substr(trim($_POST['cargos']), 0, 400),ENT_NOQUOTES);
         }
 
 
@@ -64,10 +64,8 @@ if(isset($_POST['uid'])){
 
     	R::store($candidata);
 
-	//header("Location: http://comisiones.hogueras.es/?com=".$uid)
-        //header("Location: http://www.hogueras.es");
-	die();
-
+	    header("Location: index.php?uid=".$uid);
+	    die();
     }
   }
 }
