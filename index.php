@@ -131,8 +131,7 @@ if (!$isCandidata) {
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
                                     <label class="control-label">DNI</label>
-                                    <input type="text" class="form-control" id="dni" name="dni" pattern="^\d{8}[a-zA-Z]$" maxlength="9"
-                                           title="Formato: 12345678A" required>
+                                    <input type="text" class="form-control" id="dni" name="dni" pattern="^\d{8}[a-zA-Z]$" maxlength="9" required>
                                     <p class="text-danger" id="mensajeErrorDni">DNI incorrecto</p>
                                 </div>
                             </div>
