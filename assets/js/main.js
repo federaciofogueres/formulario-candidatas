@@ -75,11 +75,9 @@ $(document).ready(function () {
 
     $('#btnEnviar').on('click', function (e) {
         var dni = $('#dni').val();
-        if (dni.length > 0) {
-            if (!compruebaDni(dni)) {
-                $('#mensajeErrorDni').show().focus();
-                return false;
-            }
+        if (dni.length > 0 && !compruebaDni(dni)) {
+            $('#mensajeErrorDni').show().focus();
+            return false;
         }
     });
 
