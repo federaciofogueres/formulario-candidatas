@@ -30,7 +30,7 @@ if (!$isCandidata) {
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>Formulario Candidatas 2017 | Federació de Les Fogueres de Sant Joan</title>
+    <title>Formulario Candidatas 2018 | Federació de Les Fogueres de Sant Joan</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -46,24 +46,16 @@ if (!$isCandidata) {
     <link href="assets/css/main.css" rel="stylesheet"/>
 </head>
 
-<body class="tutorial-page">
+<body>
 
-<nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button id="menu-toggle" type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar bar1"></span>
-                <span class="icon-bar bar2"></span>
-                <span class="icon-bar bar3"></span>
-            </button>
             <a href="http://www.hogueras.es" target="_blank">
                 <div class="logo-container">
                     <div class="logo">
                         <img src="assets/img/logofederacion.png" alt="Logo Federación">
-                    </div>
-                    <div class="brand">
                     </div>
                 </div>
             </a>
@@ -74,11 +66,11 @@ if (!$isCandidata) {
 
 <div class="wrapper">
     <div class="header header-filter"
-         style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+         style="background-image: url('assets/img/cabecera.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h1 class="title text-center">Formulario Elecció de la Bellesa del Foc 2018</h1>
+                    <h1 class="title text-center">Formulario Candidatas 2018</h1>
                 </div>
             </div>
         </div>
@@ -88,7 +80,8 @@ if (!$isCandidata) {
         <div class="main main-raised" id="formulario">
             <div class="section">
                 <div class="container">
-                    <form class="" id="form" action="saveCandidata.php" method="post">
+                  <h2 class="text-center title-foguera">Foguera <?php echo $hoguera; ?></h2>
+                    <form class="" id="form" action="saveCandidata.php" method="post" style="margin-bottom:50px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
@@ -137,7 +130,7 @@ if (!$isCandidata) {
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Teléfono</label>
+                                    <label class="control-label">Teléfono (Móvil)</label>
                                     <input type="tel" id="telefono" name="telefono" pattern="^[0-9]{9}$"
                                            class="form-control" required>
                                 </div>
@@ -184,20 +177,19 @@ if (!$isCandidata) {
                                         <option value="Dama">Dama adulta</option>
                                         <option value="Presidenta infantil">Presidenta infantil</option>
                                         <option value="Presidenta adulta">Presidenta adulta</option>
-
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Año</label>
-                                    <input type="number" min="1900" class="form-control" id="anyoCargo1">
+                                    <input type="number" min="1900" class="form-control" id="anyoCargo1" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Foguera / Barraca</label>
-                                    <input type="text" class="form-control" id="hogueraCargo1">
+                                    <input type="text" class="form-control" id="hogueraCargo1" required>
                                 </div>
                             </div>
                             <div class="col-md-2 rowOptions">
@@ -210,11 +202,21 @@ if (!$isCandidata) {
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top:20px;">
+                                <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a> y estoy conforme con el texto mostrado en el pie del formulario.</p>
+                            </div>
+                        </div>
+
                         <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
 
                         <input type="hidden" name="uid" value="<?php echo($uid) ?>">
 
                     </form>
+
+                    <p>Conforme a la Ley Orgánica 15/1999, le informamos que los datos que aparecen en el presente formulario van a ser incorporados a un fichero responsabilidad de FEDERACIÓ DE LES FOGUERES DE SANT JOAN (en adelante FEDERACIÓ DE FOGUERES) con la finalidad de gestionar las actividades y actos propios organizados por esta entidad en los que participen los miembros de las Asociaciones integradas en la misma, así como fines estadísticos y de otorgamiento de distinciones y recompensas y acciones promocionales para poder remitirles productos y/o servicios relacionados con dichos fines. A través de su firma en el presente documento, el interesado/a otorga su consentimiento expreso para la recogida y el tratamiento de los datos por parte de FEDERACIÓ DE FOGUERES.</p>
+                    <p>Si marca la casilla autoriza el tratamiento de sus datos con los fines descritos. Puede ejercitar gratuitamente los derechos de acceso, rectificación, cancelación y oposición, mediante escrito, acompañando en todo caso fotocopia del Documento Nacional de Identidad o documento equivalente, remitido por los siguientes medios: Vía fax al número 965 14 63 83. Mediante e-mail dirigido a la cuenta de correo electrónico: (federacio@hogueras.es). Mediante correo ordinario dirigido a: Secretaría General Federació de les Fogueres de Sant Joan, Casa de la Festa, Calle Bailen, nº 20, 1º piso, 03001-ALICANTE.</p>
+
                 </div>
             </div>
         </div>

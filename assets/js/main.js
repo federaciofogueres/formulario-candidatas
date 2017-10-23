@@ -10,7 +10,7 @@ $(document).ready(function () {
     $('#remove').hide();
     $('.text-danger').hide();
 
-    $('#fechanac').on('changeDate', function (e) {
+    $('#fechanac').on('changeDate change blur', function (e) {
         var date = $('#fechanac').val();
         date = moment(date, 'DD-MM-YYYY');
         var age = moment().diff(date, 'years');
@@ -60,9 +60,9 @@ $(document).ready(function () {
 
         $('.clonedDatosCargo').each(function () {
             cargos = cargos + $(this).find("[id^='tipoCargo']").val();
-            cargos = cargos + ',' + $(this).find("[id^='anyoCargo']").val();
-            cargos = cargos + ',' + $(this).find("[id^='hogueraCargo']").val();
-            cargos = cargos + "\n";
+            cargos = cargos + '-' + $(this).find("[id^='anyoCargo']").val();
+            cargos = cargos + '-' + $(this).find("[id^='hogueraCargo']").val();
+            cargos = cargos + ",";
         });
 
         $('<input />').attr('type', 'hidden')

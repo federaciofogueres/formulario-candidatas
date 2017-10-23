@@ -59,7 +59,6 @@ if(isset($_POST['uid'])){
             $candidata->curriculum = htmlentities(substr(trim($_POST['cargos']), 0, 400),ENT_NOQUOTES);
         }
 
-
     	$candidata->completed = true;
 
     	R::store($candidata);
