@@ -3,11 +3,13 @@ function compruebaDni(dni) {
     var numerosDni = dni.substring(0, 8);
     var letraDni = dni.substring(8);
 
-    return letras.substring(numerosDni%23, 1) == letraDni;
+    return letras.substr(numerosDni%23, 1) == letraDni;
 }
 
 $(document).ready(function () {
     $('#remove').hide();
+    $('.text-danger').hide();
+
     $('#fechanac').on('changeDate', function (e) {
         var date = $('#fechanac').val();
         date = moment(date, 'DD-MM-YYYY');
@@ -72,20 +74,30 @@ $(document).ready(function () {
     });
 
     $('#btnEnviar').on('click', function (e) {
-        debugger;
-        if (!compruebaDni($('#dni').val())) {
-            e.preventDefault();
-
-            return false;
+        var dni = $('#dni').val();
+        if (dni.length > 0) {
+            if (!compruebaDni(dni)) {
+                $('#mensajeErrorDni').show().focus();
+                return false;
+            }
         }
     });
 
     $('#dni').on('blur', function (e) {
-        if (compruebaDni($(this).val())) {
-            $(this).parent().removeClass('has-error');
+        var dni = $(this).val();
+        if (dni.length > 0) {
+            if (compruebaDni(dni)) {
+                $(this).parent().removeClass('has-error');
+                $('#mensajeErrorDni').fadeOut();
+            }
+            else {
+                $(this).parent().addClass('has-error');
+                $('#mensajeErrorDni').fadeIn();
+            }
         }
         else{
-            $(this).parent().addClass('has-error');
+            $(this).parent().removeClass('has-error');
+            $('#mensajeErrorDni').fadeOut();
         }
     });
 
