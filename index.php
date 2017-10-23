@@ -145,7 +145,7 @@ if (!$isCandidata) {
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email" name="email" maxlength="100" required>
                                 </div>
                             </div>
                         </div>
