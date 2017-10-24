@@ -1,5 +1,5 @@
 <?php
-include_once("includes/db.conf.php");
+include_once("../includes/db.conf.php");
 include_once("getCandidata.php");
 $isCandidata = false;
 $isCompleted = false;
@@ -26,8 +26,8 @@ if (!$isCandidata) {
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"/>
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title>Formulario Candidatas 2018 | Federació de Les Fogueres de Sant Joan</title>
@@ -40,10 +40,10 @@ if (!$isCandidata) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
 
     <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/css/material-kit.css" rel="stylesheet"/>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/material-kit.css" rel="stylesheet"/>
 
-    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="../assets/css/main.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -55,7 +55,7 @@ if (!$isCandidata) {
             <a href="http://www.hogueras.es" target="_blank">
                 <div class="logo-container">
                     <div class="logo">
-                        <img src="assets/img/logofederacion.png" alt="Logo Federación">
+                        <img src="../assets/img/logofederacion.png" alt="Logo Federación">
                     </div>
                 </div>
             </a>
@@ -66,7 +66,7 @@ if (!$isCandidata) {
 
 <div class="wrapper">
     <div class="header header-filter"
-         style="background-image: url('assets/img/cabecera.jpg');">
+         style="background-image: url('../assets/img/cabecera.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -280,22 +280,22 @@ if (!$isCandidata) {
 
 </body>
 <!--   Core JS Files   -->
-<script src="assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/material.min.js"></script>
+<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/material.min.js"></script>
 
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="assets/js/nouislider.min.js" type="text/javascript"></script>
+<script src="../assets/js/nouislider.min.js" type="text/javascript"></script>
 
 <!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-<script src="assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
 
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-<script src="assets/js/material-kit.js" type="text/javascript"></script>
+<script src="../assets/js/material-kit.js" type="text/javascript"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"
         type="text/javascript"></script>
 
-<script src="assets/js/main.js" type="text/javascript"></script>
+<script src="../assets/js/main.js" type="text/javascript"></script>
 
 </html>
