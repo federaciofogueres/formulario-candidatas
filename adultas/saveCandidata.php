@@ -1,5 +1,5 @@
 <?php
-include_once("includes/db.conf.php");
+include_once("../includes/db.conf.php");
 include_once("getCandidata.php");
 
 if(isset($_POST['uid'])){
