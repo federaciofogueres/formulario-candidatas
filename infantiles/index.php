@@ -85,7 +85,7 @@ if (!$isCandidata) {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nombre de la candidata</label>
+                                    <label class="control-label">Nombre de la candidata *</label>
                                     <input type="text" class="form-control" maxlength="255" required>
                                 </div>
                             </div>
@@ -94,14 +94,14 @@ if (!$isCandidata) {
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group label-static">
-                                    <label class="control-label">Fecha de nacimiento</label>
+                                    <label class="control-label">Fecha de nacimiento *</label>
                                     <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy"
                                            id="fechanac" name="fechanac" pattern="\d{1,2}/\d{1,2}/\d{4}" required/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Ciudad</label>
+                                    <label class="control-label">Ciudad *</label>
                                     <input type="text" class="form-control" id="ciudad" name="ciudad" maxlength="100" required>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ if (!$isCandidata) {
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Años en la fiesta</label>
+                                    <label class="control-label">Años en la fiesta *</label>
                                     <input id="anyosfiesta" name="anyosfiesta" type="number" min="0" max="100"
                                            class="form-control" required>
                                 </div>
@@ -123,30 +123,48 @@ if (!$isCandidata) {
                         <div class="row">
                           <div class="col-md-4">
                               <div class="form-group label-floating">
+                                  <label class="control-label">Nombre completo padre/madre *</label>
+                                  <input type="text" id="nombre_padre" name="nombre_padre" class="form-control" required>
+                              </div>
+                          </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Nombre completo padre/madre</label>
+                                    <input type="text" id="nombre_madre" name="nombre_madre" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Nombre completo de la patria potestad</label>
+                                    <input type="text" id="nombre_patria_potestad" name="nombre_patria_potestad" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                              <div class="form-group label-floating">
                                   <label class="control-label">Teléfono del padre/madre (Móvil) *</label>
-                                  <input type="tel" id="telefono_padre" name="telefono_padre" pattern="^[0-9]{9}$"
-                                         class="form-control" required>
+                                  <input type="tel" id="telefono_padre" name="telefono_padre" pattern="^[0-9]{9}$" class="form-control" required>
                               </div>
                           </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Teléfono del padre/madre (Móvil)</label>
-                                    <input type="tel" id="telefono_madre" name="telefono_madre" pattern="^[0-9]{9}$"
-                                           class="form-control">
+                                    <input type="tel" id="telefono_madre" name="telefono_madre" pattern="^[0-9]{9}$" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Teléfono de la Patria Potestad (Móvil)</label>
-                                    <input type="tel" id="telefono_patria_potestad" name="telefono_patria_potestad" pattern="^[0-9]{9}$"
-                                           class="form-control">
+                                    <label class="control-label">Teléfono de la Patria Potestad (tutor legal) (Móvil)</label>
+                                    <input type="tel" id="telefono_patria_potestad" name="telefono_patria_potestad" pattern="^[0-9]{9}$" class="form-control">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
-                                <p>Estudios</p>
+                                <p>Estudios *</p>
                                 <textarea class="form-control" id="estudios" name="estudios" maxlength="300"
                                           placeholder="Indicar Estudios y centro donde los cursó (máximo 300 caracteres)" rows="5"
                                           style="margin-top:-20px;" required></textarea>
@@ -155,7 +173,7 @@ if (!$isCandidata) {
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
-                                <p>Aficiones y/o actividades extraescolares</p>
+                                <p>Aficiones y/o actividades extraescolares *</p>
                                 <textarea class="form-control" id="aficiones" name="aficiones"
                                           maxlength="300"
                                           placeholder="Indicar qué tipo de actividad realiza y dónde (máximo 300 caracteres)"
@@ -163,7 +181,7 @@ if (!$isCandidata) {
                             </div>
                         </div>
 
-                        <p>Currículum festero (Indicar los años dada de alta y el cargo desempeñado)</p>
+                        <p>Currículum festero (Indicar los años dada de alta y el cargo desempeñado) *</p>
 
                         <div class="row clonedDatosCargo" id="datosCargo1">
                             <div class="col-md-4">
@@ -200,13 +218,13 @@ if (!$isCandidata) {
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
-                                <p><input type="checkbox" required name="parents">Por la presente consiento la participación y cesión de datos de mi hija para lo descrito en la parte inferior de este formulario</p>
+                                <p><input type="checkbox" required name="parents">Los tutores legales que figuran en el presente formulario están conformes con el uso de estos datos para los fines expuestos en la clausula mostrada en el pie de esta página. Este formulario de datos de caracter personal se acepta también al rellenar y entregar la hoja con el título "Cesión de derechos de imagen y datos de caracter personal".</p>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
-                                <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a> y estoy conforme con el texto mostrado en el pie del formulario.</p>
+                                <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a> y estoy conforme con la clausula mostrada en el pie de esta página.</p>
                             </div>
                         </div>
 
@@ -216,7 +234,7 @@ if (!$isCandidata) {
 
                     </form>
 
-                    <p>Conforme a la Ley Orgánica 15/1999, le informamos que los datos que aparecen en el presente formulario van a ser incorporados a un fichero responsabilidad de FEDERACIÓ DE LES FOGUERES DE SANT JOAN (en adelante FEDERACIÓ DE FOGUERES) con la finalidad de gestionar las actividades y actos propios organizados por esta entidad en los que participen los miembros de las Asociaciones integradas en la misma, así como fines estadísticos y de otorgamiento de distinciones y recompensas y acciones promocionales para poder remitirles productos y/o servicios relacionados con dichos fines. A través de su firma en el presente documento, el interesado/a otorga su consentimiento expreso para la recogida y el tratamiento de los datos por parte de FEDERACIÓ DE FOGUERES.</p>
+                    <p>Conforme a la Ley Orgánica 15/1999, le informamos que los datos que aparecen en el presente formulario van a ser incorporados a un  fichero responsabilidad de FEDERACIÓ DE LES FOGUERES DE SANT JOAN (en FEDERACIÓ DE FOGUERES) con la finalidad de gestionar su participación en el certamen de elección de la Bellesa del Foc de Alacant y sus actividades promocionales y de difusión anexas. A través de la aceptación del presente documento, la interesada otorga su consentimiento expreso para la recogida y el tratamiento de los datos por parte de FEDERACIÓ DE FOGUERES. Igualmente, la interesada autoriza la comunicación o cesión de los mencionados datos al Excmo. Ayuntamiento de Alicante, y a los medios de comunicación social con el mismo objeto indicado en el apartado anterior.</p>
                     <p>Si marca la casilla autoriza el tratamiento de sus datos con los fines descritos. Puede ejercitar gratuitamente los derechos de acceso, rectificación, cancelación y oposición, mediante escrito, acompañando en todo caso fotocopia del Documento Nacional de Identidad o documento equivalente, remitido por los siguientes medios: Vía fax al número 965 14 63 83. Mediante e-mail dirigido a la cuenta de correo electrónico: (federacio@hogueras.es). Mediante correo ordinario dirigido a: Secretaría General Federació de les Fogueres de Sant Joan, Casa de la Festa, Calle Bailen, nº 20, 1º piso, 03001-ALICANTE.</p>
 
                 </div>

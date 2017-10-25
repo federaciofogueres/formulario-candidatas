@@ -35,12 +35,28 @@ if(isset($_POST['uid'])){
             $candidata->anyos_fiesta = htmlentities(trim($_POST['anyosfiesta']),ENT_NOQUOTES);
         }
 
-        if(isset($_POST['dni'])){
-            $candidata->dni = htmlentities(substr(trim($_POST['dni']), 0, 9),ENT_NOQUOTES);
+        if(isset($_POST['nombre_padre'])){
+            $candidata->nombre_padre = htmlentities(trim($_POST['nombre_padre']),ENT_NOQUOTES);
         }
 
-        if(isset($_POST['telefono'])){
-            $candidata->telefono = htmlentities(trim($_POST['telefono']),ENT_NOQUOTES);
+        if(isset($_POST['nombre_madre'])){
+            $candidata->nombre_madre = htmlentities(trim($_POST['nombre_madre']),ENT_NOQUOTES);
+        }
+
+        if(isset($_POST['nombre_patria_potestad'])){
+            $candidata->nombre_patria_potestad = htmlentities(trim($_POST['nombre_patria_potestad']),ENT_NOQUOTES);
+        }
+
+        if(isset($_POST['telefono_padre'])){
+            $candidata->telefono_padre = htmlentities(trim($_POST['telefono_padre']),ENT_NOQUOTES);
+        }
+
+        if(isset($_POST['telefono_madre'])){
+            $candidata->telefono_madre = htmlentities(trim($_POST['telefono_madre']),ENT_NOQUOTES);
+        }
+
+        if(isset($_POST['telefono_patria_potestad'])){
+            $candidata->telefono_patria_potestad = htmlentities(trim($_POST['telefono_patria_potestad']),ENT_NOQUOTES);
         }
 
         if(isset($_POST['email'])){
@@ -51,8 +67,8 @@ if(isset($_POST['uid'])){
             $candidata->formacion = htmlentities(substr(trim($_POST['estudios']), 0, 300),ENT_NOQUOTES);
         }
 
-        if(isset($_POST['situacion_laboral'])){
-            $candidata->situacion_laboral = htmlentities(substr(trim($_POST['situacion_laboral']), 0, 300),ENT_NOQUOTES);
+        if(isset($_POST['aficiones'])){
+            $candidata->aficiones = htmlentities(substr(trim($_POST['aficiones']), 0, 300),ENT_NOQUOTES);
         }
 
         if(isset($_POST['cargos'])){
