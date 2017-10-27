@@ -20,7 +20,7 @@ if(isset($_POST['uid'])){
 
         if(isset($_POST['fechanac'])){
             $fecha_nacimiento = date("Y-m-d", strtotime(trim($_POST['fechanac'])));
-            $candidata->fechanac = htmlentities($fecha_nacimiento,ENT_NOQUOTES);
+            $candidata->fechanac = $fecha_nacimiento;
         }
 
         if(isset($_POST['ciudad'])){

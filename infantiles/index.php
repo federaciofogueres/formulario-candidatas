@@ -81,12 +81,13 @@ if (!$isCandidata) {
             <div class="section">
                 <div class="container">
                   <h2 class="text-center title-foguera">Foguera <?php echo $hoguera; ?></h2>
+                  <small class="text-center" style="margin-bottom:20px;display:block;width:100%;">Este formulario tiene que rellenarse usando el navegador <strong>Google Chrome</strong></small>
                     <form class="" id="form" action="saveCandidata.php" method="post" style="margin-bottom:50px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nombre de la candidata *</label>
-                                    <input type="text" class="form-control" maxlength="255" required>
+                                    <label class="control-label">Nombre completo de la candidata *</label>
+                                    <input id="nombre" name="nombre" type="text" class="form-control" maxlength="255" required>
                                 </div>
                             </div>
                         </div>
@@ -94,8 +95,8 @@ if (!$isCandidata) {
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group label-static">
-                                    <label class="control-label">Fecha de nacimiento *</label>
-                                    <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy"
+                                    <label class="control-label">Fecha de nacimiento (dd/mm/aaaa) *</label>
+                                    <input class="form-control" type="date" data-date-format="dd/mm/yyyy"
                                            id="fechanac" name="fechanac" pattern="\d{1,2}/\d{1,2}/\d{4}" required/>
                                 </div>
                             </div>
@@ -135,7 +136,7 @@ if (!$isCandidata) {
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nombre completo de la patria potestad</label>
+                                    <label class="control-label">Nombre completo del tutor legal</label>
                                     <input type="text" id="nombre_patria_potestad" name="nombre_patria_potestad" class="form-control">
                                 </div>
                             </div>
@@ -156,7 +157,7 @@ if (!$isCandidata) {
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Teléfono de la Patria Potestad (tutor legal) (Móvil)</label>
+                                    <label class="control-label">Teléfono del tutor legal (Móvil)</label>
                                     <input type="tel" id="telefono_patria_potestad" name="telefono_patria_potestad" pattern="^[0-9]{9}$" class="form-control">
                                 </div>
                             </div>
@@ -202,7 +203,7 @@ if (!$isCandidata) {
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Foguera / Barraca</label>
+                                    <label class="control-label">Foguera</label>
                                     <input type="text" class="form-control" id="hogueraCargo1" required>
                                 </div>
                             </div>

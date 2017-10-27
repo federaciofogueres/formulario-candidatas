@@ -12,7 +12,8 @@ $(document).ready(function () {
 
     $('#fechanac').on('changeDate change blur', function (e) {
         var date = $('#fechanac').val();
-        date = moment(date, 'DD-MM-YYYY');
+        // var age = moment().diff(moment(date, 'DD/MM/YYYY'),'years');
+        date = moment(date,'YYYY-MM-DD');
         var age = moment().diff(date, 'years');
         if (isNaN(age)) {
             age = 0;

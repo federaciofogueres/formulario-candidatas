@@ -81,12 +81,13 @@ if (!$isCandidata) {
             <div class="section">
                 <div class="container">
                   <h2 class="text-center title-foguera">Foguera <?php echo $hoguera; ?></h2>
+                  <small class="text-center" style="margin-bottom:20px;display:block;width:100%;">Este formulario tiene que rellenarse usando el navegador <strong>Google Chrome</strong></small>
                     <form class="" id="form" action="saveCandidata.php" method="post" style="margin-bottom:50px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nombre de la candidata</label>
-                                    <input type="text" class="form-control" maxlength="255" required>
+                                    <label class="control-label">Nombre completo de la candidata</label>
+                                    <input id="nombre" name="nombre" type="text" class="form-control" maxlength="255" required>
                                 </div>
                             </div>
                         </div>
@@ -94,8 +95,8 @@ if (!$isCandidata) {
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group label-static">
-                                    <label class="control-label">Fecha de nacimiento</label>
-                                    <input class="datepicker form-control" type="text" data-date-format="dd/mm/yyyy"
+                                    <label class="control-label">Fecha de nacimiento (dd/mm/aaaa)</label>
+                                    <input class="form-control" type="date" data-date-format="dd/mm/yyyy"
                                            id="fechanac" name="fechanac" pattern="\d{1,2}/\d{1,2}/\d{4}" required/>
                                 </div>
                             </div>
@@ -188,7 +189,7 @@ if (!$isCandidata) {
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Foguera / Barraca</label>
+                                    <label class="control-label">Foguera</label>
                                     <input type="text" class="form-control" id="hogueraCargo1" required>
                                 </div>
                             </div>
@@ -204,6 +205,12 @@ if (!$isCandidata) {
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
+                                <p><input type="checkbox" required name="firm">La candidata está conforme con el uso de estos datos para los fines expuestos en la clausula mostrada en el pie de esta página. Este formulario de datos de caracter personal se acepta también al rellenar y entregar la hoja con el título "Cesión de derechos de imagen y datos de caracter personal".</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top:20px;">
                                 <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a> y estoy conforme con el texto mostrado en el pie del formulario.</p>
                             </div>
                         </div>
@@ -214,7 +221,7 @@ if (!$isCandidata) {
 
                     </form>
 
-                    <p>Conforme a la Ley Orgánica 15/1999, le informamos que los datos que aparecen en el presente formulario van a ser incorporados a un fichero responsabilidad de FEDERACIÓ DE LES FOGUERES DE SANT JOAN (en adelante FEDERACIÓ DE FOGUERES) con la finalidad de gestionar las actividades y actos propios organizados por esta entidad en los que participen los miembros de las Asociaciones integradas en la misma, así como fines estadísticos y de otorgamiento de distinciones y recompensas y acciones promocionales para poder remitirles productos y/o servicios relacionados con dichos fines. A través de su firma en el presente documento, el interesado/a otorga su consentimiento expreso para la recogida y el tratamiento de los datos por parte de FEDERACIÓ DE FOGUERES.</p>
+                    <p>Conforme a la Ley Orgánica 15/1999, le informamos que los datos que aparecen en el presente formulario van a ser incorporados a un  fichero responsabilidad de FEDERACIÓ DE LES FOGUERES DE SANT JOAN (en FEDERACIÓ DE FOGUERES) con la finalidad de gestionar su participación en el certamen de elección de la Bellesa del Foc de Alacant y sus actividades promocionales y de difusión anexas. A través de la aceptación del presente documento, la interesada otorga su consentimiento expreso para la recogida y el tratamiento de los datos por parte de FEDERACIÓ DE FOGUERES. Igualmente, la interesada autoriza la comunicación o cesión de los mencionados datos al Excmo. Ayuntamiento de Alicante, y a los medios de comunicación social con el mismo objeto indicado en el apartado anterior.</p>
                     <p>Si marca la casilla autoriza el tratamiento de sus datos con los fines descritos. Puede ejercitar gratuitamente los derechos de acceso, rectificación, cancelación y oposición, mediante escrito, acompañando en todo caso fotocopia del Documento Nacional de Identidad o documento equivalente, remitido por los siguientes medios: Vía fax al número 965 14 63 83. Mediante e-mail dirigido a la cuenta de correo electrónico: (federacio@hogueras.es). Mediante correo ordinario dirigido a: Secretaría General Federació de les Fogueres de Sant Joan, Casa de la Festa, Calle Bailen, nº 20, 1º piso, 03001-ALICANTE.</p>
 
                 </div>
