@@ -124,7 +124,7 @@ if (!$isCandidata) {
                         <div class="row">
                           <div class="col-md-4">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Nombre completo padre/madre *</label>
+                                  <label class="control-label">Nombre completo padre/madre  *</label>
                                   <input type="text" id="nombre_padre" name="nombre_padre" class="form-control" required>
                               </div>
                           </div>
@@ -145,7 +145,7 @@ if (!$isCandidata) {
                         <div class="row">
                           <div class="col-md-4">
                               <div class="form-group label-floating">
-                                  <label class="control-label">Teléfono del padre/madre (Móvil) *</label>
+                                  <label class="control-label">Teléfono del padre/madre (Móvil) (Para Whatsapp) *</label>
                                   <input type="tel" id="telefono_padre" name="telefono_padre" pattern="^[0-9]{9}$" class="form-control" required>
                               </div>
                           </div>

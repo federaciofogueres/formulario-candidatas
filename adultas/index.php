@@ -171,7 +171,7 @@ if (!$isCandidata) {
                                     <label class="control-label">Cargo</label>
                                     <select type="text" class="form-control" id="tipoCargo1" required>
                                         <option value="Bellesa infantil">Bellesa infantil</option>
-                                        <option value="Presidenta adulta">Bellesa del foc infantil</option>
+                                        <option value="Bellesa del foc infantil">Bellesa del foc infantil</option>
                                         <option value="Bellesa">Bellesa adulta</option>
                                         <option value="Dama infantil">Dama infantil</option>
                                         <option value="Dama del foc infantil">Dama del foc infantil</option>
