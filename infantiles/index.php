@@ -1,11 +1,11 @@
 <?php
 include_once("../includes/db.conf.php");
-include_once("getCandidata.php");
+include_once("../lib/getCandidata.php");
 $isCandidata = false;
 $isCompleted = false;
 if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
     $uid = $_GET["uid"];
-    $candidata = getCandidata($uid);
+    $candidata = getCandidata($uid, 'infantil');
     if (!empty($candidata)) {
         $isCandidata = true;
 
@@ -34,16 +34,8 @@ if (!$isCandidata) {
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+    <?php include("../includes/styles.php"); ?>
 
-    <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../assets/css/material-kit.css" rel="stylesheet"/>
-
-    <link href="../assets/css/main.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -81,8 +73,8 @@ if (!$isCandidata) {
             <div class="section">
                 <div class="container">
                   <h2 class="text-center title-foguera">Foguera <?php echo $hoguera; ?></h2>
-                  <small class="text-center" style="margin-bottom:20px;display:block;width:100%;">Este formulario tiene que rellenarse usando el navegador <strong>Google Chrome</strong></small>
-                    <form class="" id="form" action="saveCandidata.php" method="post" style="margin-bottom:50px;">
+                    <?php include("../includes/chromeAdvise.php"); ?>
+                    <form class="" id="form" action="../lib/saveCandidata.php" method="post" style="margin-bottom:50px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
@@ -105,14 +97,8 @@ if (!$isCandidata) {
                                     <label class="control-label">Ciudad *</label>
                                     <input type="text" class="form-control" id="ciudad" name="ciudad" maxlength="100" required>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Edad (auto)</label>
-                                    <input id="edad" name="edad" type="text" class="form-control" readonly required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
+                            </div>                            
+                            <div class="col-md-4">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Años en la fiesta *</label>
                                     <input id="anyosfiesta" name="anyosfiesta" type="number" min="0" max="100"
@@ -232,91 +218,26 @@ if (!$isCandidata) {
                         <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
 
                         <input type="hidden" name="uid" value="<?php echo($uid) ?>">
+                        <input type="hidden" name="type" value="infantil">
 
                     </form>
 
-                    <p>Conforme a la Ley Orgánica 15/1999, le informamos que los datos que aparecen en el presente formulario van a ser incorporados a un  fichero responsabilidad de FEDERACIÓ DE LES FOGUERES DE SANT JOAN (en FEDERACIÓ DE FOGUERES) con la finalidad de gestionar su participación en el certamen de elección de la Bellesa del Foc de Alacant y sus actividades promocionales y de difusión anexas. A través de la aceptación del presente documento, la interesada otorga su consentimiento expreso para la recogida y el tratamiento de los datos por parte de FEDERACIÓ DE FOGUERES. Igualmente, la interesada autoriza la comunicación o cesión de los mencionados datos al Excmo. Ayuntamiento de Alicante, y a los medios de comunicación social con el mismo objeto indicado en el apartado anterior.</p>
-                    <p>Si marca la casilla autoriza el tratamiento de sus datos con los fines descritos. Puede ejercitar gratuitamente los derechos de acceso, rectificación, cancelación y oposición, mediante escrito, acompañando en todo caso fotocopia del Documento Nacional de Identidad o documento equivalente, remitido por los siguientes medios: Vía fax al número 965 14 63 83. Mediante e-mail dirigido a la cuenta de correo electrónico: (federacio@hogueras.es). Mediante correo ordinario dirigido a: Secretaría General Federació de les Fogueres de Sant Joan, Casa de la Festa, Calle Bailen, nº 20, 1º piso, 03001-ALICANTE.</p>
+                   <?php include("../includes/legalAdvise.php"); ?>
 
                 </div>
             </div>
         </div>
-    <?php } else { ?>
-        <div class="main">
-            <div class="section">
-                <div class="container">
-                    <h2 style="text-align:center;">
-                        Formulario completado
-                        <br>
-                        <small>Cualquier duda envía un correo a la dirección asesoriaimagen@hogueras.es</small>
-                    </h2>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
+    <?php } else { 
+            include('../includes/formCompleted.php');
+        } ?>
 
 </div>
 <footer class="footer footer-transparent">
-    <div class="container">
-        <nav class="pull-left">
-            <ul>
-                <li>
-                    <a href="http://www.hogueras.es">
-                        Hogueras.es
-                    </a>
-                </li>
-                <li>
-                    <a href="http://indumentaria.hogueras.es">
-                        Indumentaria.hogueras.es
-                    </a>
-                </li>
-                <li>
-                    <a href="http://intranet.hogueras.es" rel="nofollow">
-                        Intranet.hogueras.es
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:asesoriaimagen@hogueras.es">
-                        ¿Tienes dudas?
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="social-area pull-right">
-            <a class="btn btn-social btn-twitter btn-just-icon" href="https://twitter.com/fed_fogueres">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-social btn-facebook btn-just-icon" href="https://www.facebook.com/fogueres">
-                <i class="fa fa-facebook-square"></i>
-            </a>
-            <a class="btn btn-social btn-google btn-just-icon" href="https://plus.google.com/b/116364503080646782264/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </div>
-        <div class="copyright">
-            &copy; 2017 Federació de Les Fogueres de Sant Joan
-        </div>
-    </div>
+        <?php include('../includes/footer.php'); ?>
 </footer>
 
 </body>
-<!--   Core JS Files   -->
-<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../assets/js/material.min.js"></script>
 
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="../assets/js/nouislider.min.js" type="text/javascript"></script>
-
-<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-<script src="../assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
-
-<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-<script src="../assets/js/material-kit.js" type="text/javascript"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"
-        type="text/javascript"></script>
-
-<script src="../assets/js/main.js" type="text/javascript"></script>
+<?php include('../includes/scripts.php'); ?>
 
 </html>

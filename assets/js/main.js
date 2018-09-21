@@ -1,26 +1,17 @@
-function compruebaDni(dni) {
-    var letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
-    var numerosDni = dni.substring(0, 8);
-    var letraDni = dni.substring(8);
-
-    return letras.substr(numerosDni%23, 1) == letraDni;
-}
-
 $(document).ready(function () {
+
+    var navegador = getNavegador();
+    if (navegador != 'Chrome') {
+        $('#form').hide();
+        $('#chrome-advise').show();
+        $('#legal-advise').hide();
+    } else {
+        $('#form').show();
+        $('#chrome-advise').hide();
+    }
+
     $('#remove').hide();
     $('.text-danger').hide();
-
-    $('#fechanac').on('changeDate change blur', function (e) {
-        var date = $('#fechanac').val();
-        // var age = moment().diff(moment(date, 'DD/MM/YYYY'),'years');
-        date = moment(date,'YYYY-MM-DD');
-        var age = moment().diff(date, 'years');
-        if (isNaN(age)) {
-            age = 0;
-        }
-        $('#edad').val(age);
-        $('#edad').trigger('change');
-    });
 
     $(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
 
@@ -88,20 +79,32 @@ $(document).ready(function () {
             if (compruebaDni(dni)) {
                 $(this).parent().removeClass('has-error');
                 $('#mensajeErrorDni').fadeOut();
-            }
-            else {
+            } else {
                 $(this).parent().addClass('has-error');
                 $('#mensajeErrorDni').fadeIn();
             }
-        }
-        else{
+        } else {
             $(this).parent().removeClass('has-error');
             $('#mensajeErrorDni').fadeOut();
         }
     });
 
-    // $('#fechanac').datepicker({
-    //   weekStart: 1,
-    //   language: 'es',
-    // });
+    function getNavegador() {
+        var agente = window.navigator.userAgent;
+        var navegadores = ["Chrome", "Firefox", "Safari", "Opera", "Trident", "MSIE", "Edge"];
+        for (var i in navegadores) {
+            if (agente.indexOf(navegadores[i]) != -1) {
+                return navegadores[i];
+            }
+        }
+    }
+
+    function compruebaDni(dni) {
+        var letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+        var numerosDni = dni.substring(0, 8);
+        var letraDni = dni.substring(8);
+
+        return letras.substr(numerosDni % 23, 1) == letraDni;
+    }
+
 });
