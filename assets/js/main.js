@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-    var navegador = getNavegador();
-    if (navegador != 'Chrome') {
+    if (!is.chrome()) {
         $('#form').hide();
         $('#chrome-advise').show();
         $('#legal-advise').hide();
@@ -88,16 +87,6 @@ $(document).ready(function () {
             $('#mensajeErrorDni').fadeOut();
         }
     });
-
-    function getNavegador() {
-        var agente = window.navigator.userAgent;
-        var navegadores = ["Chrome", "Firefox", "Safari", "Opera", "Trident", "MSIE", "Edge"];
-        for (var i in navegadores) {
-            if (agente.indexOf(navegadores[i]) != -1) {
-                return navegadores[i];
-            }
-        }
-    }
 
     function compruebaDni(dni) {
         var letras = 'TRWAGMYFPDXBNJZSQVHLCKE';

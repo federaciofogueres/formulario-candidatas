@@ -176,6 +176,8 @@ if (!$isCandidata) {
                                         <option value="Delegada artística">Delegada artística</option>
                                         <option value="Delegada de bellezas">Delegada de bellezas</option>
                                         <option value="Delegada de infantiles">Delegada de infantiles</option>
+                                        <option value="Federación">Federación</option>
+                                        <option value="Subcomisión">Subcomisión</option>
                                     </select>
                                 </div>
                             </div>

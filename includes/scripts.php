@@ -14,4 +14,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js" type="text/javascript"></script>
 
+<script src="../assets/js/is.min.js" type="text/javascript"></script>
+
 <script src="../assets/js/main.js" type="text/javascript"></script>
