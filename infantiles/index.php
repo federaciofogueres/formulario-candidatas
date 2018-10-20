@@ -203,11 +203,11 @@ if (!$isCandidata) {
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
                                 <p><input type="checkbox" required name="parents">Los tutores legales que figuran en el presente formulario están conformes con el uso de estos datos para los fines expuestos en la clausula mostrada en el pie de esta página. Este formulario de datos de caracter personal se acepta también al rellenar y entregar la hoja con el título "Cesión de derechos de imagen y datos de caracter personal".</p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
@@ -221,8 +221,6 @@ if (!$isCandidata) {
                         <input type="hidden" name="type" value="infantil">
 
                     </form>
-
-                   <?php include("../includes/legalAdvise.php"); ?>
 
                 </div>
             </div>

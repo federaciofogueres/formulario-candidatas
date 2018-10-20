@@ -203,7 +203,7 @@ if (!$isCandidata) {
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
                                 <p><input type="checkbox" required name="firm">La candidata está conforme con el uso de
                                     estos datos para los fines expuestos en la clausula mostrada en el pie de esta
@@ -211,14 +211,13 @@ if (!$isCandidata) {
                                     y entregar la hoja con el título "Cesión de derechos de imagen y datos de caracter
                                     personal".</p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
                                 <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/"
                                         target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/"
-                                        target="_blank">aviso legal</a> y estoy conforme con el texto mostrado en el
-                                    pie del formulario.</p>
+                                        target="_blank">aviso legal</a>.</p>
                             </div>
                         </div>
 
@@ -228,8 +227,6 @@ if (!$isCandidata) {
                         <input type="hidden" name="type" value="adulta">
 
                     </form>
-
-                    <?php include("../includes/legalAdvise.php"); ?>
 
                 </div>
             </div>
