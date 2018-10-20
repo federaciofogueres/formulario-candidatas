@@ -211,7 +211,7 @@ if (!$isCandidata) {
 
                         <div class="row">
                             <div class="col-md-12" style="margin-top:20px;">
-                                <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a> y estoy conforme con la clausula mostrada en el pie de esta página.</p>
+                                <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a>.</p>
                             </div>
                         </div>
 
