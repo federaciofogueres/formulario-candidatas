@@ -1,6 +1,6 @@
 <?php
-include_once("../includes/db.conf.php");
-include_once("../lib/getCandidata.php");
+include_once "../includes/db.conf.php";
+include_once "../lib/getCandidata.php";
 $isCandidata = false;
 $isCompleted = false;
 if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
@@ -36,7 +36,7 @@ if (!$isCandidata) {
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
-    <?php include("../includes/styles.php"); ?>
+    <?php include "../includes/styles.php";?>
 </head>
 
 <body>
@@ -68,19 +68,19 @@ if (!$isCandidata) {
             </div>
         </div>
         <?php
-    if (!$isCompleted) { ?>
+if (!$isCompleted) {?>
         <div class="main main-raised" id="formulario">
             <div class="section">
                 <div class="container">
                     <h2 class="text-center title-foguera">Foguera
                         <?php echo $hoguera; ?>
                     </h2>
-                    <?php include("../includes/chromeAdvise.php"); ?>
+                    <?php include "../includes/chromeAdvise.php";?>
                     <form class="" id="form" action="../lib/saveCandidata.php" method="post" style="margin-bottom:50px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nombre completo de la candidata</label>
+                                    <label class="control-label">Nombre y apellidos de la candidata</label>
                                     <input id="nombre" name="nombre" type="text" class="form-control" maxlength="255"
                                         required>
                                 </div>
@@ -154,6 +154,17 @@ if (!$isCandidata) {
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-12" style="margin-top:20px;">
+                                <p>Observaciones</p>
+                                <p style="font-size:13px">*Esta información <strong>no será expuesta públicamente</strong>, solo se usará exclusivamente a modo informativo para la Federació de Fogueres</p>
+                                <textarea class="form-control" id="observaciones" name="observaciones"
+                                          maxlength="300"
+                                          placeholder="Observaciones importantes como alergias, intolerancias o información de relevancia."
+                                          rows="5" style="margin-top:-20px;"></textarea>
+                            </div>
+                        </div>
+
                         <p>Currículum festero (Indicar los años dada de alta y el cargo desempeñado)</p>
 
                         <div class="row clonedDatosCargo" id="datosCargo1">
@@ -223,7 +234,7 @@ if (!$isCandidata) {
 
                         <button class="btn btn-success" type="submit" id="btnEnviar">Enviar</button>
 
-                        <input type="hidden" name="uid" value="<?php echo($uid) ?>">
+                        <input type="hidden" name="uid" value="<?php echo ($uid) ?>">
                         <input type="hidden" name="type" value="adulta">
 
                     </form>
@@ -231,17 +242,17 @@ if (!$isCandidata) {
                 </div>
             </div>
         </div>
-        <?php } else {        
-            include('../includes/formCompleted.php');
-         } ?>
+        <?php } else {
+    include '../includes/formCompleted.php';
+}?>
 
     </div>
     <footer class="footer footer-transparent">
-        <?php include('../includes/footer.php'); ?>
+        <?php include '../includes/footer.php';?>
     </footer>
 
 </body>
 
-<?php include('../includes/scripts.php'); ?>
+<?php include '../includes/scripts.php';?>
 
 </html>
