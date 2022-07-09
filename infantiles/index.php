@@ -18,7 +18,7 @@ if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
 }
 
 if (!$isCandidata) {
-    header('Location: http://www.hogueras.es');
+    header('Location: https://www.hogueras.es');
 }
 ?>
 
@@ -45,7 +45,7 @@ if (!$isCandidata) {
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a href="http://www.hogueras.es" target="_blank">
+                <a href="https://www.hogueras.es" target="_blank">
                     <div class="logo-container">
                         <div class="logo">
                             <img src="../assets/img/logofederacion.png" alt="Logo Federación">
@@ -212,7 +212,7 @@ if (!$isCandidata) {
 
                             <div class="row">
                                 <div class="col-md-12" style="margin-top:20px;">
-                                    <p><input type="checkbox" required name="terms"> Acepto la <a href="http://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="http://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a>.</p>
+                                    <p><input type="checkbox" required name="terms"> Acepto la <a href="https://www.hogueras.es/privacy-policy/" target="_blank">política de privacidad</a>, el <a href="https://www.hogueras.es/aviso-legal/" target="_blank">aviso legal</a>.</p>
                                 </div>
                             </div>
 

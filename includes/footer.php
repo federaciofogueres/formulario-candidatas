@@ -2,7 +2,7 @@
     <nav class="pull-left">
         <ul>
             <li>
-                <a href="http://www.hogueras.es">
+                <a href="https://www.hogueras.es">
                     Hogueras.es
                 </a>
             </li>
