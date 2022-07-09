@@ -35,6 +35,6 @@
         </a>
     </div>
     <div class="copyright">
-        &copy; 2018 Federació de Les Fogueres de Sant Joan
+        &copy; <?php echo date("Y"); ?> Federació de Les Fogueres de Sant Joan
     </div>
 </div>
