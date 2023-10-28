@@ -31,7 +31,7 @@ if (!$isCandidata) {
     <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Formulario Candidatas Infantiles <?php echo $candidata['anyo']+1 ?> | Federació de Les Fogueres de Sant Joan</title>
+    <title>Formulario Candidatas Infantiles | Federació de Les Fogueres de Sant Joan</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -62,7 +62,7 @@ if (!$isCandidata) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <h1 class="title text-center">Formulario Candidatas Infantiles <?php echo $candidata['anyo']+1 ?></h1>
+                        <h1 class="title text-center">Formulario Candidatas Infantiles</h1>
                     </div>
                 </div>
             </div>

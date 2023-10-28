@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li>
-                <a href="mailto:asesoriaimagen@hogueras.es">
+                <a href="mailto:transformaciondigital@hogueras.es">
                     ¿Tienes dudas?
                 </a>
             </li>

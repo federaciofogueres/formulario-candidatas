@@ -8,6 +8,9 @@ if (isset($_POST['uid']) && isset($_POST['type'])) {
 
     $candidata_array = getCandidata($uid, $type);
 
+    echo $candidata_array;
+    echo 'hola';
+    print_r($_POST);
     if (!empty($candidata_array)) {
 
         $id = $candidata_array['id'];
@@ -100,9 +103,9 @@ if (isset($_POST['uid']) && isset($_POST['type'])) {
             R::store($candidata);
 
             if ($type === 'adulta') {
-                header("Location: ../adultas/" . $uid);
+                header("Location: ../adultas/?uid=" . $uid);
             } else {
-                header("Location: ../infantiles/" . $uid);
+                header("Location: ../infantiles/?uid=" . $uid);
             }
 
             die();

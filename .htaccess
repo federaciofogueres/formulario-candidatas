@@ -19,13 +19,3 @@
   </ifModule>
 </filesMatch> 
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-f
-
-  RewriteRule ^infantiles/([a-zA-Z0-9-]*)/?$ /infantiles/index.php?uid=$1 [L]
-  RewriteRule ^adultas/([a-zA-Z0-9-]*)/?$ /adultas/index.php?uid=$1 [L]
-
-</IfModule>

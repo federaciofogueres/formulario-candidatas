@@ -1,25 +1,24 @@
 <?php
-include_once "../includes/db.conf.php";
-include_once "../lib/getCandidata.php";
-$isCandidata = false;
-$isCompleted = false;
-if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
-    $uid = $_GET["uid"];
-    $candidata = getCandidata($uid, 'adulta');
-    if (!empty($candidata)) {
-        $isCandidata = true;
+    include_once "../includes/db.conf.php";
+    include_once "../lib/getCandidata.php";
+    $isCandidata = false;
+    $isCompleted = false;
+    if (!empty($_GET["uid"]) && strlen($_GET["uid"]) == 8) {
+        $uid = $_GET["uid"];
+        $candidata = getCandidata($uid, 'adulta');
+        if (!empty($candidata)) {
+            $isCandidata = true;
 
-        if ($candidata['completed']) {
-            $isCompleted = true;
+            if ($candidata['completed']) {
+                $isCompleted = true;
+            }
+            $hoguera = $candidata['hoguera'];
+            $uiddb = $candidata['uid'];
         }
-        $hoguera = $candidata['hoguera'];
-        $uiddb = $candidata['uid'];
     }
-}
-
-if (!$isCandidata) {
-    header('Location: https://www.hogueras.es');
-}
+    if (!$isCandidata) {
+        header('Location: https://www.hogueras.es');
+    }
 ?>
 
 <!doctype html>
@@ -62,7 +61,7 @@ if (!$isCandidata) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <h1 class="title text-center">Formulario Candidatas <?php echo $candidata['anyo']+1 ?></h1>
+                        <h1 class="title text-center">Formulario Candidatas</h1>
                     </div>
                 </div>
             </div>
