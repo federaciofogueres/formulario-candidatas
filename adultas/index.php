@@ -172,6 +172,9 @@
                                             <option value="Delegada artística">Delegada artística</option>
                                             <option value="Delegada de bellezas">Delegada de bellezas</option>
                                             <option value="Delegada de infantiles">Delegada de infantiles</option>
+                                            <option value="Delegada de llibret">Delegada de llibret</option>
+                                            <option value="Delegada de cultura">Delegada de cultura</option>
+                                            <option value="Delegada de comunicación">Delegada de comunicación</option>
                                             <option value="Federación">Federación</option>
                                             <option value="Subcomisión">Subcomisión</option>
                                         </select>
